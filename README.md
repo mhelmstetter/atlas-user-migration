@@ -1,3 +1,7 @@
+# EDIT:
+
+THIS IS A TEST REPO FOR ROLL MIGRATION, this project is not intended for production use and at times may not be operational at all. Use at own risk!
+
 # Atlas Database User Migration Utility
 
 Atlas provides excellent tools, such as [Live Migration](https://docs.atlas.mongodb.com/import/live-import/) and [mongomirror](https://docs.atlas.mongodb.com/import/mongomirror/) for migrating your data to Atlas. However, neither of these tools import user and role data.
@@ -6,7 +10,7 @@ This utility is a Python script that was written to assist migrating your existi
 
 The script uses the [Python driver](https://docs.mongodb.com/ecosystem/drivers/python/#python-driver) to fetch your existing users and roles. However, as the [createUser](https://docs.mongodb.com/manual/reference/command/createUser/#dbcmd.createUser) command is [not supported](https://docs.atlas.mongodb.com/reference/unsupported-commands-paid-tier-clusters/) by Atlas, users need to be created using the [Database Users](https://docs.atlas.mongodb.com/reference/api/database-users/) REST api.
 
-To use the tool, you need to populate a [params.py](params.py) file with your credentials. As a prerequisite, you must have already [Configured Atlas API Access](https://docs.atlas.mongodb.com/configure-api-access/). 
+To use the tool, you need to populate a [params.py](params.py) file with your credentials. As a prerequisite, you must have already [Configured Atlas API Access](https://docs.atlas.mongodb.com/configure-api-access/).
 
 ```
 # Input parameters
@@ -73,9 +77,3 @@ User scott created.
 
 And you'll find the users in Atlas:
 ![](images/target_users.png)
-
-
-
-
-
-
