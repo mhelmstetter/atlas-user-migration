@@ -1,6 +1,6 @@
 # EDIT:
 
-THIS IS A TEST REPO FOR ROLL MIGRATION, this project is not intended for production use and at times may not be operational at all. Use at own risk!
+THIS IS A TEST REPO FOR ROLE MIGRATION, this project is not intended for production use and at times may not be operational at all. Use at own risk!
 
 # Atlas Database User Migration Utility
 
