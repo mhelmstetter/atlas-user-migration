@@ -63,6 +63,7 @@ def post_atlas_api(url, data, key):
     else:
         print(data[key] + " failed to be created.")
         print("Error - status code: " + str(resp.status_code))
+        print(resp.text)
 
 
 def format_actions(unformatted_actions):
@@ -91,7 +92,14 @@ def convert_privilege_to_unformatted_actions(privilege, actions):
             continue
         if not action in actions.keys():
             actions[action] = []
-        actions[action].append(privilege["resource"])
+        print("*** " + str(privilege["resource"]))
+        if privilege["resource"]["collection"].startswith("system"):
+            print("skipping " + privilege["resource"]["collection"])
+        else:
+            if privilege["resource"]["collection"] is None:
+                print("no collection: " + str(privilege["resource"]))
+            else:    
+                actions[action].append(privilege["resource"])
     return actions
 
 
@@ -126,6 +134,7 @@ def migrate_roles():
         if role["isBuiltin"]:
             continue
         actions = convert_privileges_to_actions(role["privileges"])
+        #print(actions)
         formatted_role = {
             "roleName": role["role"],
             "actions": actions,
